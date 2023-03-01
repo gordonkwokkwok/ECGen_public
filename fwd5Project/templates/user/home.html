@@ -1,0 +1,108 @@
+{% extends 'user/base.html' %}
+
+{% load static %}
+
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> -->
+{% block content %}
+<style>
+    .card{
+        background-color:rgb(181, 233, 181);
+        margin: 1rem 0.5rem;
+        border-width: medium;
+        border-color: rgb(62, 170, 62);
+        border-radius: 1rem;
+        height: 10rem;
+    }
+
+    .card.cardButton:hover{
+      background-color: rgb(62, 193, 62);
+    }
+
+    .card-body>a{
+        font-size: x-large;
+        text-align: center;
+        color: grey;
+    }
+
+    .card-body>button>a{
+        font-size: x-large;
+        text-align: center;
+        color: grey;
+    }
+    .display>h1{
+        font-size: 25px;
+        text-align: center;
+        color: grey;
+    }
+</style>
+{% for msg in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Hey</strong> {{ msg }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="card">
+          <div class="display card-body align-items-center d-flex justify-content-center">
+            {% if user_model.freeTrial %}
+              <h1>Your have 1 time left. Click upgrade to continue</h1>
+            {% elif remaining_days > 0 %}
+              <h1>Your have {{ remaining_days }} days to use the service left</h1>
+            {% else %}
+              <h1>Your trial ended. Click upgrade to continue</h1>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card cardButton">
+          <div class="card-body align-items-center d-flex justify-content-center">
+            <button class="btn btn-link"><a id="submitBtn" style="color:red">Upgrade Now</a></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card cardButton">
+          <div class="card-body align-items-center d-flex justify-content-center">
+            {% if user_model.freeTrial %}
+            <a href="/cover-letter-auto-generator/">Cover Letter Auto Builder</a>
+            {% elif remaining_days > 0 %}
+            <a href="/cover-letter-auto-generator/">Cover Letter Auto Builder</a>
+            {% else %}
+            <a href="#"><s>Cover Letter Auto Builder</s></a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card cardButton">
+          <div class="card-body align-items-center d-flex justify-content-center">
+            <a href="#"><s>CV Auto Builder</s><br>(Upcoming)</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card cardButton">
+          <div class="card-body align-items-center d-flex justify-content-center">
+            <a href="#"><s>Resume Auto Builder</s><br>(Upcoming)</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body align-items-center d-flex justify-content-center">
+            <a href="#"><s>Job Application Bot</s><br>(Upcoming)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="{% static 'payment.js' %}"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+  {% endblock %}

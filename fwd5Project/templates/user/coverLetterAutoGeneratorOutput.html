@@ -1,0 +1,14 @@
+{% extends 'user/base.html' %}
+
+{% block content %}
+<div class="m-5">
+    <a class="btn btn-secondary btn-lg  " style="color:white;" href="/cover-letter-auto-generator/">Back</a><br><br>
+    <h1>Your Cover Letter</h1>
+    <div class="border border-dark rounded mt-3 mb-3 p-2" style="background-color: white; border-width:2px !important;">
+        <p> {{ message }} </p>
+    </div>
+    <button class="btn btn-success btn-lg">
+        <a style="color:white" href="{% url 'download_cover_letter' %}" download>Download Cover Letter</a>
+    </button>
+</div>
+{% endblock %}

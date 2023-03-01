@@ -1,0 +1,27 @@
+{% extends 'user/base.html' %}
+
+{% block content %}
+<!-- {% load static %} -->
+<!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+<div class="mt-4 ml-5">
+  <h2>Enter your profile and job description</h2>
+  <br>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="name" style="width: 150px;">Name:</label><br>
+      <input type="text" id="name" name="name" class="w-50 border border-dark rounded" style="background-color: white; border-width:2px !important;" required>
+    </div>
+    <div class="form-group">
+      <label for="job-title" style="width: 150px;">Job Title:</label><br>
+      <input type="text" id="job-title" name="job_title" class="w-50 border border-dark rounded" style="background-color: white; border-width:2px !important;" required>
+    </div>
+    <div class="form-group">
+      <label for="job-description" style="width: 150px;">Job Description:</label><br>
+      <textarea id="job-description" name="job_description" rows="10" class="w-50 border border-dark rounded" style="background-color: white; border-width:2px !important;" required></textarea>
+    </div>
+    <a class="btn btn-secondary btn-lg" style="color:white; margin-right: 26%;" href="/user">Back</a>
+    <button type="submit" class="btn btn-success btn-lg">Generate Cover Letter</button>
+  </form>
+</dvi> 
+{% endblock %}

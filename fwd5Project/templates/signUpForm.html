@@ -1,0 +1,10 @@
+<h1>Sign-Up Form</h1>
+
+<!-- <form action="/form" action="POST" style="background-color: bisque;"> -->
+<form action="" method="POST" style="background-color: bisque;">
+    {% csrf_token %}
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit" value="Submit"> 
+</form>

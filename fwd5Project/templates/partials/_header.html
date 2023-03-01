@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="{% url 'home' %}" class="navbar-brand" style="font-size: 25px">EC<b>Gen</b></a>  		
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+    </button>   
+    <!-- Collection of nav links, forms, and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+        <div class="navbar-nav">
+            <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+            <a href="{% url 'about' %}" class="nav-item nav-link">About</a>			
+            <div class="nav-item dropdown">
+                <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle" style="color:red; font-weight: bold;">Tools</a>
+                <div class="dropdown-menu">
+                    <a href="{% url 'register' %}" class="dropdown-item" style="color:red; font-weight: bold;">Cover Letter Auto Builder</a>
+                    <a href="{% url 'register' %}" class="dropdown-item"><s>CV Auto Builder</s> (Upcoming)</a>
+                    <a href="{% url 'register' %}" class="dropdown-item"><s>Resume Auto Builder</s> (Upcoming)</a>
+                    <a href="{% url 'register' %}" class="dropdown-item"><s>Job Application Bot</s> (Upcoming)</a>
+                </div>
+            </div>
+            <a href="{% url 'price' %}" class="nav-item nav-link">Price</a>
+            <a href="{% url 'blog' %}" class="nav-item nav-link">Blog</a>
+            <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+        </div>
+        <form class="navbar-form form-inline">
+            <div class="input-group search-box">							
+                <input type="text" id="search" class="form-control" placeholder="Search here...">
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <i class="material-icons">&#xE8B6;</i>
+                    </span>
+                </div>
+            </div>
+        </form>
+        <div class="navbar-nav ml-auto action-buttons">
+            <!-- <div class="nav-item dropdown"> -->
+                <a href="{% url 'login' %}" class="nav-link dropdown-toggle mr-4">Login</a>
+            <!-- </div> -->
+            <!-- <div class="nav-item dropdown"> -->
+                <a href="{% url 'register' %}" class="btn btn-primary dropdown-toggle sign-up-btn">Sign up</a>
+            <!-- </div> -->
+        </div>
+    </div>
+</nav>
